@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  HomeTableViewCell.h
 //  InOfficeTimer
 //
 //  Created by mookyung song on 9/9/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface HomeTableViewCell : UITableViewCell
 
 @end
-
