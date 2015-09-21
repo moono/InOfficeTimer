@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "OfficeManager.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+	
+	// create or load WorkTimeManager
+	OfficeManager *officeManager = [OfficeManager defaultInstance];
+	[officeManager loadData];
+	
     return YES;
 }
 
@@ -40,6 +46,10 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+	
+	// backup
+	OfficeManager *officeManager = [OfficeManager defaultInstance];
+	[officeManager saveAsFile];
 }
 
 @end

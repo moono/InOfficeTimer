@@ -10,22 +10,7 @@
 #import "OfficeManager.h"
 #import "HomeTableViewCell.h"
 
-@interface HomeViewController () <UITableViewDataSource, UITableViewDelegate> {
-	// there are 5 sections
-	// 0: start time
-	// 1: total work duration
-	// 2: total duration of time that user have been gone out
-	// 3: list of times that the user went out
-	// 4: end time
-	enum mySections {
-		START_TIME = 0,
-		IN_OFFICE_DAY,
-		OUT_OFFICE_DAY,
-		OUT_OFFICE_LIST,
-		END_TIME,
-		NUMBER_OF_SECTIONS,
-	};
-}
+@interface HomeViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSString *startTime;
 @property (nonatomic, strong) NSString *endTime;
@@ -53,10 +38,6 @@
 	// initialize date formatter
 	_dateFormatter = [[NSDateFormatter alloc] init];
 	[_dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-	
-	// create or load WorkTimeManager
-	OfficeManager *manager = [OfficeManager defaultInstance];
-	[manager loadData];
 	
 	// start showing current time
 	[self showDateTime:self];
